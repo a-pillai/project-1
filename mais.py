@@ -72,17 +72,22 @@ def accessURLs():
   return(curiosity_resp, insight_resp_today, insight_resp_yesterday)
 
 def processImage():
-  img_url = curiosity_resp['photos'][0]['img_src']
-  img = requests.get(img_url)
-  img = Image.open(BytesIO(img.content))
+    try:
+        img_url = curiosity_resp['photos'][0]['img_src']
+        img = requests.get(img_url)
+        img = Image.open(BytesIO(img.content))
 
-  rover_name = str(curiosity_resp['photos'][0]['rover']['name'])
-  camera_name = str(curiosity_resp['photos'][0]['camera']['full_name'])
-  img_sol = str(curiosity_resp['photos'][0]['sol'])
+        rover_name = str(curiosity_resp['photos'][0]['rover']['name'])
+        camera_name = str(curiosity_resp['photos'][0]['camera']['full_name'])
+        img_sol = str(curiosity_resp['photos'][0]['sol'])
   
-  caption = 'This image was taken by ' + rover_name + ' using its ' + camera_name + ' on Sol ' + img_sol + '.'
+        caption = 'This image was taken by ' + rover_name + ' using its ' + camera_name + ' on Sol ' + img_sol + '.'
 
-  return(img, caption)
+        return(img, caption)
+    except:
+        img = 0
+        caption = 'NO IMAGE FOUND'
+        return(img, caption)
 
 def getWeatherData(data, date):
   if type(data) == dict:
@@ -161,5 +166,8 @@ writePrint(new_line)
 writePrint('IMAGES FROM CURIOSITY MARS ROVER')
 writePrint(line_brk)
 writePrint(caption)
-img.show()
-img.save('output/output_image.png')
+if img != 0:
+    img.show()
+    img.save('output/output_image.png')
+elif img == 0:
+    quit()
