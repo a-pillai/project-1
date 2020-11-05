@@ -1,8 +1,22 @@
-from PIL import Image
-import requests
-from io import BytesIO
-from datetime import date, timedelta
-import re
+try:
+    from PIL import Image
+except:
+    print("Pillow module not installed. Please run this command: 'python3 -m pip install Pillow'.")
+    quit()
+
+try:
+    import requests
+except:
+    print("Requests module not installed. Please run this command: 'python3 -m pip install requests'.")
+    quit()
+
+try:
+    from io import BytesIO
+    from datetime import date, timedelta
+    import re
+except:
+    print('ERROR IN DEFAULT MODULES')
+    quit()
 
 def writePrint(text):
     print(text)
