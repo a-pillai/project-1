@@ -83,11 +83,12 @@ def processImage():
   
         caption = 'This image was taken by ' + rover_name + ' using its ' + camera_name + ' on Sol ' + img_sol + '.'
 
-        return(img, caption)
+        return(img, img_url, caption)
     except:
         img = 0
+        img_url = 'NO IMAGE URL FOUND'
         caption = 'NO IMAGE FOUND'
-        return(img, caption)
+        return(img, img_url, caption)
 
 def getWeatherData(data, date):
   if type(data) == dict:
@@ -153,7 +154,7 @@ writePrint(new_line)
 
 curiosity_resp, insight_resp_today, insight_resp_yesterday = accessURLs()
 
-img, caption = processImage()
+img, img_url, caption = processImage()
 
 writePrint('WEATHER DATA FROM INSIGHT MARS LANDER')
 writePrint(line_brk)
@@ -165,6 +166,7 @@ writePrint(new_line)
 # use img.show() for script version
 writePrint('IMAGES FROM CURIOSITY MARS ROVER')
 writePrint(line_brk)
+writePrint(f'Accessing image at {img_url}...')
 writePrint(caption)
 if img != 0:
     img.show()
