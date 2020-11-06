@@ -10,7 +10,7 @@ This project uses scripts in Jupyter to display images available through NASA's 
 
 This script retrieves image data from NASA's Curiosity, Oppourtunity, and Spirit rovers on Mars. The script selects images using date and rover camera mount location.
 
-#Ex. 
+#Example output
 
 WELCOME TO M.A.I.S. --- MARS API INFORMATION SERIVCE
 
@@ -69,7 +69,7 @@ This image was taken by Curiosity using its Mars Hand Lens Imager on Sol 2459.
 
 This scipt uses opencage to ultimatley retrieve landsat imagery based on a supplied location and date. A for loop is used to first identify the intended city and then identify a date, of which the results are then printed. 
 
-#Ex. 
+#Example output
 
 Enter the name of the city
 
