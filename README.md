@@ -78,6 +78,7 @@ Enter the name of the city
 Enter the name of the state or country where the city is located
 
  Georgia
+ 
 Enter the date (yyyy-mm-dd) you would like to see
 
  2017-07-07
